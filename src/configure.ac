@@ -998,8 +998,8 @@ AC_SUBST(YAPPS)
 AX_BOOST_BASE(,,AC_MSG_ERROR([libboost not found]))
 AX_PYTHON
 AC_PATH_PROG(PYTHON,[$PYTHON_BIN])
-AX_PYTHON_DEVEL(,,AC_MSG_ERROR([python-dev not found]))
-AX_BOOST_PYTHON(,,AC_MSG_ERROR([libboost-python not found]))
+#AX_PYTHON_DEVEL(,,AC_MSG_ERROR([python-dev not found]))
+#AX_BOOST_PYTHON(,,AC_MSG_ERROR([libboost-python not found]))
 
 AC_MSG_CHECKING([whether to build documentation])
 AC_ARG_ENABLE(build-documentation,
