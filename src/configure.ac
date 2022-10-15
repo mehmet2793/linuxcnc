@@ -1424,7 +1424,7 @@ AC_ARG_ENABLE(check-runtime-deps,
 AC_MSG_CHECKING([whether to check for runtime dependencies])
 AC_MSG_RESULT($RUNTIME_CHECK)
 
-if test "$RUNTIME_CHECK" = "yes"; then
+if test "$RUNTIME_CHECK" = "no"; then
     AC_MSG_CHECKING([for BWidget using $TCLSH])
     if (unset DISPLAY; echo ["catch { package require bwidget }; exit [expr [lsearch [package names] BWidget] == -1]"] | $TCLSH); then
         AC_MSG_RESULT([found])
@@ -1450,15 +1450,15 @@ if test "$RUNTIME_CHECK" = "yes"; then
     install with "sudo apt-get install tclx"])
     fi
 
-#    AC_MSG_CHECKING([for python pango module])
-#    if $PYTHON -c "import gi;gi.require_version('Pango', '1.0');from gi.repository import Pango"; then
-#        AC_MSG_RESULT([found])
-#    else
-#        AC_MSG_RESULT(no)
-#        AC_MSG_ERROR(
-#[Python pango module not found!
-#install with "sudo apt-get install python3-gi"])
-#    fi
+    AC_MSG_CHECKING([for python pango module])
+    if $PYTHON -c "import gi;gi.require_version('Pango', '1.0');from gi.repository import Pango"; then
+        AC_MSG_RESULT([found])
+    else
+        AC_MSG_RESULT(no)
+        AC_MSG_ERROR(
+[Python pango module not found!
+install with "sudo apt-get install python3-gi"])
+    fi
 fi
 
 AC_SUBST([TCL_DBGX])
